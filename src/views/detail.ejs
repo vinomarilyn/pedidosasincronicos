@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="card">
+        <h2>Titulo</h2>
+        <h3><%= respuesta.data.title %> </h3>
+        <ul>
+            <li>
+                <h5>Rating</h5>
+                ><%= respuesta.data.rating %>
+            </li>
+            <li>
+                <h5>Premios</h5>
+                <%= respuesta.data.awards %>
+            </li>
+            <li>
+                <h5>Estreno</h5>
+                <%= respuesta.data.release_date %>
+            </li>
+            <li>
+                <h5>Duracion</h5>
+                <%= respuesta.data.length %> minutos
+            </li>
+            <!-- <li>
+                En el formulario de creacion predeterminado no pide el genero
+                <h5>Genero</h5>
+                <%#= respuesta.data.genre.name %>
+            </li> -->
+        </ul>
+        <div class="action">
+            <a href="/edit/<%= respuesta.data.id %> ">
+                <button class="botonAgregar" >Editar</button>
+            </a>
+            <form action="/delete/<%=respuesta.data.id%>?_method=DELETE" method="post">
+                <button class="botonBorrar">Eliminar</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

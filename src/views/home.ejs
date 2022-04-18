@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicando JS</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/e17fc4cce2.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    
+    <div id="root">
+      <div>
+        <h1 class="main">Listado de Películas</h1>
+        <h2 class="main"><a href="/favoritas">Peliculas Favoritas</a></h2>
+      </div>
+      <a href="/create">Cargar Pelicula</a>
+      <% respuesta.data.forEach(pelicula => { %>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Titulo</h3>
+              <h4><%= pelicula.title%> </h4>
+              <a href="/detail/<%= pelicula.id %> ">Detalle</a>
+              <div class="fav" onclick="getPelicula('<%= pelicula.id%>')" style="cursor: pointer;">
+                <i class="fa-solid fa-star favoritas"></i>
+                <small>Agregar a favoritos</small>
+              </div>
+              <h5>Rating <%= pelicula.rating %> </h5>
+              <hr>
+            </li>
+          </ul>
+        </div>
+        <% }) %>
+    </div>
+    <script type="text/javascript" src="js/favoritas.js"></script>
+  </body>
+</html>
